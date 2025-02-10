@@ -1,0 +1,74 @@
+Account Created Sucessfully for Vishal with account id : 1 
+Account Created Sucessfully for Tessa with account id : 2 
+Account Created Sucessfully for Aakansha with account id : 3
+************* LIST THE RECORDS ******************
+{1: {'balance': 2000,
+     'name': 'Vishal',
+     'phone': '9390365005',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]},
+ 2: {'balance': 2000,
+     'name': 'Tessa',
+     'phone': '123456789',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]},
+ 3: {'balance': 2000,
+     'name': 'Aakansha',
+     'phone': '9987654321',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]}}
+*************** LIST THE RECORDS (DEPOSIT FUNDS (ID1)) ****************
+ Deposit 1000 Sucessuful, new balance is 3000 for Vishal , id 1
+***list users data
+{1: {'balance': 3000,
+     'name': 'Vishal',
+     'phone': '9390365005',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'},
+                     {'amount': 1000, 'newBalance': 3000, 'type': 'credit'}]},
+ 2: {'balance': 2000,
+     'name': 'Tessa',
+     'phone': '123456789',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]},
+ 3: {'balance': 2000,
+     'name': 'Aakansha',
+     'phone': '9987654321',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]}}
+************** LIST THE RECORDS (WITHDRAW FUNDS (ID1)) *****************
+ Withdraw 500 Sucessuful, new balance is 2500 for account Vishal id 1
+***list users data
+{1: {'balance': 2500,
+     'name': 'Vishal',
+     'phone': '9390365005',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'},
+                     {'amount': 1000, 'newBalance': 3000, 'type': 'credit'},
+                     {'amount': 500, 'newBalance': 2500, 'type': 'debit'}]},
+ 2: {'balance': 2000,
+     'name': 'Tessa',
+     'phone': '123456789',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]},
+ 3: {'balance': 2000,
+     'name': 'Aakansha',
+     'phone': '9987654321',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]}}
+************* LIST THE RECORDS (DEPOSIT FUNDS (ID3)) ******************
+ Withdraw 1500 Sucessuful, new balance is 500 for account Aakansha id 3
+***list users data
+{1: {'balance': 2500,
+     'name': 'Vishal',
+     'phone': '9390365005',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'},
+                     {'amount': 1000, 'newBalance': 3000, 'type': 'credit'},
+                     {'amount': 500, 'newBalance': 2500, 'type': 'debit'}]},
+ 2: {'balance': 2000,
+     'name': 'Tessa',
+     'phone': '123456789',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}]},
+ 3: {'balance': 500,
+     'name': 'Aakansha',
+     'phone': '9987654321',
+     'transaction': [{'amount': 2000, 'newBalance': 2000, 'type': 'credit'},
+                     {'amount': 1500, 'newBalance': 500, 'type': 'debit'}]}}
+************** LIST THE RECORDS (DEPOSIT FUNDS (ID3)) *****************
+Insufficient Balance to withdraw 2500 for Aakansha, id 3
+*********** ACCOUNT STATEMENT (DEPOSIT FUNDS (ID3)) ********************
+Here is the record statement of Aakansha
+ Note: Here's the record statement of last 5 transactions or total transactions which is less
+{'type': 'credit', 'amount': 2000, 'newBalance': 2000}
+{'type': 'debit', 'amount': 1500, 'newBalance': 500}
