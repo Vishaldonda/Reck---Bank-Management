@@ -1,0 +1,49 @@
+Account Created Sucessfully for Vishal with account id : 1 
+Account Created Sucessfully for Tessa with account id : 2 
+Account Created Sucessfully for Aakansha with account id : 3
+************* LIST THE RECORDS ******************
+['Accound id', ' Name', ' Phone', ' Balance', ' Transactions']
+['1', 'Vishal', '9390365005', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+['2', 'Tessa', '1234567890', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+['3', 'Aakansha', '9987654321', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+*************** LIST THE RECORDS (DEPOSIT FUNDS (ID1)) ****************
+[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]
+ Deposit 1000 Sucessuful, new balance is 3000 for Aakansha , id 1
+***list users data
+['Accound id', ' Name', ' Phone', ' Balance', ' Transactions']
+['1', 'Vishal', '9390365005', '3000', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "credit", "amount": 1000, "newBalance": 3000}]']
+['2', 'Tessa', '1234567890', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+['3', 'Aakansha', '9987654321', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+************** LIST THE RECORDS (WITHDRAW FUNDS (ID1)) *****************
+Withdrawal 500 Successful, new balance is 2500 for Aakansha, id 1
+***list users data
+['Accound id', ' Name', ' Phone', ' Balance', ' Transactions']
+['1', 'Vishal', '9390365005', '2500', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "credit", "amount": 1000, "newBalance": 3000}, {"type": "debit", "amount": 500, "newBalance": 2500}]']
+['2', 'Tessa', '1234567890', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+['3', 'Aakansha', '9987654321', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+************* LIST THE RECORDS (DEPOSIT FUNDS (ID3)) ******************
+Withdrawal 1500 Successful, new balance is 500 for Aakansha, id 3
+***list users data
+['Accound id', ' Name', ' Phone', ' Balance', ' Transactions']
+['1', 'Vishal', '9390365005', '2500', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "credit", "amount": 1000, "newBalance": 3000}, {"type": "debit", "amount": 500, "newBalance": 2500}]']
+['2', 'Tessa', '1234567890', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+['3', 'Aakansha', '9987654321', '500', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "debit", "amount": 1500, "newBalance": 500}]']
+************** LIST THE RECORDS (DEPOSIT FUNDS (ID3)) *****************
+Insufficient funds
+***list users data
+['Accound id', ' Name', ' Phone', ' Balance', ' Transactions']
+['1', 'Vishal', '9390365005', '2500', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "credit", "amount": 1000, "newBalance": 3000}, {"type": "debit", "amount": 500, "newBalance": 2500}]']
+['2', 'Tessa', '1234567890', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+['3', 'Aakansha', '9987654321', '500', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "debit", "amount": 1500, "newBalance": 500}]']
+*********** ACCOUNT STATEMENT (DEPOSIT FUNDS (ID3)) ********************
+Here is the record statement of Aakansha
+ Note: Here's the record statement of last 5 transactions or total transactions which is less
+{'amount': 2000, 'newBalance': 2000, 'type': 'credit'}
+***list users data
+['Accound id', ' Name', ' Phone', ' Balance', ' Transactions']
+['1', 'Vishal', '9390365005', '2500', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "credit", "amount": 1000, "newBalance": 3000}, {"type": "debit", "amount": 500, "newBalance": 2500}]']                                       : 1000, "newBalance": 3000}, {"type": "d
+['2', 'Tessa', '1234567890', '2000', "[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"]
+['3', 'Aakansha', '9987654321', '500', '[{"type": "credit", "amount": 2000, "newBalance": 2000}, {"type": "debit", "amount": 1500, "newBalance": 500}]']
+
+
+
