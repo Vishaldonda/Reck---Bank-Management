@@ -4,15 +4,15 @@ from pprint import pprint
 
 class Bank: 
     def __init__(self):
-        self.f_name = 'bank.csv'
+        self.__f_name = 'bank.csv'
         self.__ungen =  0
         
-        with open(self.f_name, 'w', newline="") as file:
+        with open(self.__f_name, 'w', newline="") as file:
             writer = csv.writer(file)
             writer.writerow(["Accound id", " Name" , " Phone", " Balance", " Transactions"])
             
     def listAllUsers(self):
-        with open(self.f_name, 'r') as file:
+        with open(self.__f_name, 'r') as file:
             reader = csv.reader(file)
             for row in reader:
                 print(row)
@@ -30,7 +30,7 @@ class Bank:
             unid =  self.__ungen
             transactions = [{"type":"credit","amount":2000,"newBalance" : 2000}]
             
-            with open(self.f_name, 'a', newline="") as file:
+            with open(self.__f_name, 'a', newline="") as file:
                 writer = csv.writer(file)
                 writer.writerow([unid, name , phone, balance, transactions])
                 
@@ -40,7 +40,7 @@ class Bank:
         rec = []
         user_found = False
         
-        with open(self.f_name, 'r') as file:
+        with open(self.__f_name, 'r') as file:
             reader = csv.reader(file)
             header =    next(reader) 
             rec.append(header)
@@ -68,7 +68,7 @@ class Bank:
             if not user_found:
                 return "User not Found!"
             
-            with open(self.f_name, 'w', newline="") as file:
+            with open(self.__f_name, 'w', newline="") as file:
                 writer = csv.writer(file)
                 writer.writerows(rec)
                 return (f" Deposit {amount} Sucessuful, new balance is {balance} for {row[1]} , id { unid }")
@@ -78,7 +78,7 @@ class Bank:
         rec = []
         user_found = False
 
-        with open(self.f_name, 'r') as file:
+        with open(self.__f_name, 'r') as file:
             reader = csv.reader(file)
             header = next(reader)
             rec.append(header)
@@ -107,7 +107,7 @@ class Bank:
         if not user_found:
             return "User not Found!"
 
-        with open(self.f_name, 'w', newline="") as file:
+        with open(self.__f_name, 'w', newline="") as file:
             writer = csv.writer(file)
             writer.writerows(rec)
 
@@ -119,7 +119,7 @@ class Bank:
         user_found = False
         
          
-        with open(self.f_name, 'r') as file:
+        with open(self.__f_name, 'r') as file:
             reader = csv.reader(file)
             next(reader)
             
