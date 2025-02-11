@@ -1,4 +1,0 @@
-Accound id, Name, Phone, Balance, Transactions
-1,Vishal,9390365005,2500,"[{""type"": ""credit"", ""amount"": 2000, ""newBalance"": 2000}, {""type"": ""credit"", ""amount"": 1000, ""newBalance"": 3000}, {""type"": ""debit"", ""amount"": 500, ""newBalance"": 2500}]"
-2,Tessa,1234567890,2000,"[{'type': 'credit', 'amount': 2000, 'newBalance': 2000}]"
-3,Aakansha,9987654321,500,"[{""type"": ""credit"", ""amount"": 2000, ""newBalance"": 2000}, {""type"": ""debit"", ""amount"": 1500, ""newBalance"": 500}]"
