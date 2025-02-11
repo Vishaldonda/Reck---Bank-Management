@@ -14,13 +14,13 @@ class Bank:
                 ["Accound id", " Name", " Phone", " Balance", " Transactions"]
             )
 
-    def listAllUsers(self):
+    def list_all_users(self):
         with open(self.__f_name, "r") as file:
             reader = csv.reader(file)
             for row in reader:
                 print(row)
 
-    def addUsers(self, name: str = "", phone: str = "xxx", balance: int = 2000):
+    def add_users(self, name: str = "", phone: str = "xxx", balance: int = 2000):
         if not name.isalpha() or len(name) < 1:
             print(name)
             return "Accound Creation Denied!, Please provide a valid name"
@@ -39,7 +39,7 @@ class Bank:
 
         return f"Account Created Sucessfully for {name} with account id : {unid} "
 
-    def depositFunds(self, unid: int, amount: int = 0):
+    def deposit_funds(self, unid: int, amount: int = 0):
         rec = []
         user_found = False
 
@@ -77,7 +77,7 @@ class Bank:
                 writer.writerows(rec)
                 return f" Deposit {amount} Sucessuful, new balance is {balance} for {row[1]} , id {unid}"
 
-    def withdrawFunds(self, unid: int, amount: int = 0):
+    def withdraw_funds(self, unid: int, amount: int = 0):
         rec = []
         user_found = False
 
@@ -118,8 +118,7 @@ class Bank:
 
         return f"Withdrawal {amount} Successful, new balance is {balance} for {row[1]}, id {unid}"
 
-    def accStat(self, unid: int):
-        stat = []
+    def acc_stat(self, unid: int):
         user_found = False
 
         with open(self.__f_name, "r") as file:
@@ -148,38 +147,38 @@ class Bank:
 b1 = Bank()
 
 # Add few users with unid and deposit of 2000
-print(b1.addUsers("Vishal", "9390365005"))
-print(b1.addUsers("Tessa", "1234567890"))
-print(b1.addUsers("Aakansha", "9987654321"))
+print(b1.add_users("Vishal", "9390365005"))
+print(b1.add_users("Tessa", "1234567890"))
+print(b1.add_users("Aakansha", "9987654321"))
 
 print("************* LIST THE RECORDS ******************")
-b1.listAllUsers()
+b1.list_all_users()
 
 # deposit funds
 print("*************** LIST THE RECORDS (DEPOSIT FUNDS (ID1)) ****************")
-print(b1.depositFunds(unid=1, amount=1000))
+print(b1.deposit_funds(unid=1, amount=1000))
 print("***list users data")
-b1.listAllUsers()
+b1.list_all_users()
 
 # withdraw funds
 print("************** LIST THE RECORDS (WITHDRAW FUNDS (ID1)) *****************")
-print(b1.withdrawFunds(unid=1, amount=500))
+print(b1.withdraw_funds(unid=1, amount=500))
 print("***list users data")
-b1.listAllUsers()
+b1.list_all_users()
 
 print("************* LIST THE RECORDS (DEPOSIT FUNDS (ID3)) ******************")
-print(b1.withdrawFunds(unid=3, amount=1500))
+print(b1.withdraw_funds(unid=3, amount=1500))
 print("***list users data")
-b1.listAllUsers()
+b1.list_all_users()
 
 
 print("************** LIST THE RECORDS (DEPOSIT FUNDS (ID3)) *****************")
-print(b1.withdrawFunds(unid=3, amount=2500))
+print(b1.withdraw_funds(unid=3, amount=2500))
 print("***list users data")
-b1.listAllUsers()
+b1.list_all_users()
 
 
 print("*********** ACCOUNT STATEMENT (DEPOSIT FUNDS (ID3)) ********************")
-b1.accStat(unid=3)
+b1.acc_stat(unid=3)
 print("***list users data")
-b1.listAllUsers()
+b1.list_all_users()
