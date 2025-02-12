@@ -6,13 +6,13 @@ class Bank:
     def __init__(self):
         self.name = ""
         self.__users = {}  # user detail private
-        self.__ungen = 0
-
-        f_name = "bank.csv"
-        with open(f_name, "w") as file:
-            writer = csv.writer(file)
-            writer.writerow(["accound id", "name", "phone",
-                            "balance", "transactions"])
+        self.__gen = self.infinite_generator()
+  
+    def infinite_generator(self):
+        i = 1
+        while True:
+            yield i
+            i += 1
 
     def list_all_users(self):
         pprint(self.__users)
@@ -30,8 +30,7 @@ class Bank:
             return "Account Creation Denied! Please provide a valid phone number."
 
         else:
-            self.__ungen += 1
-            unid = self.__ungen
+            unid = next(self.__gen)
             self.__users[unid] = {
                 "name": name,
                 "phone": phone,
