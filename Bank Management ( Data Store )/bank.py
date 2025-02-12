@@ -6,13 +6,19 @@ from pprint import pprint
 class Bank:
     def __init__(self):
         self.__f_name = "bank.csv"
-        self.__ungen = 0
-
+        self.__gen = self.infinite_generator()
+        
         with open(self.__f_name, "w", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(
                 ["Accound id", " Name", " Phone", " Balance", " Transactions"]
             )
+            
+    def infinite_generator(self):
+        i = 1
+        while True:
+            yield i
+            i += 1
 
     def list_all_users(self):
         with open(self.__f_name, "r") as file:
@@ -29,8 +35,7 @@ class Bank:
             return "Account Creation Denied! Please provide a valid phone number."
 
         else:
-            self.__ungen += 1
-            unid = self.__ungen
+            unid = next(self.__gen)
             transactions = [{"type": "credit", "amount": 2000, "newBalance": 2000}]
 
             with open(self.__f_name, "a", newline="") as file:
