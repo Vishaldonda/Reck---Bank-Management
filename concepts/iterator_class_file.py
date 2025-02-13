@@ -23,7 +23,6 @@ class MyClass:
     except StopIteration:
       raise
 
-n = 5
 myclass = MyClass()
 myiter = iter(myclass)
 

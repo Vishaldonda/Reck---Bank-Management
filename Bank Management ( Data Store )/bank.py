@@ -23,11 +23,15 @@ class Bank:
     def list_all_users(self):
         with open(self.__f_name, "r") as file:
             reader = csv.reader(file)
-            for row in reader:
-                print(row)
+            data = list(reader)
+            if len(data) <= 1:
+                print("No Users have registered yet!")
+            else:
+                for row in reader:
+                    print(row)
 
     def add_users(self, name: str = "", phone: str = "xxx", balance: int = 2000):
-        if not name.isalpha() or len(name) < 1:
+        if not name.strip().replace(" ","").isalpha() or len(name) < 1:
             print(name)
             return "Accound Creation Denied!, Please provide a valid name"
 
@@ -151,39 +155,92 @@ class Bank:
 
 b1 = Bank()
 
-# Add few users with unid and deposit of 2000
-print(b1.add_users("Vishal", "9390365005"))
-print(b1.add_users("Tessa", "1234567890"))
-print(b1.add_users("Aakansha", "9987654321"))
+while True:
+    
+    print("\n***Please enter a number for the required operation***")
+    print("""
+        Enter 1 : List all Users 
+        Enter 2 : Adding a new User
+        Enter 3 : Deposit Funds 
+        Enter 4 : Withdraw Funds 
+        Enter 5 : Show Account Statement 
+        Enter 6 : To Exit\n""")
+    try:
+        operation = int(input("Select an Option : "))
+        match (operation):
+            
+            case 1 : # List all users
+                b1.list_all_users()
+            
+            case 2 : #Adding a new User1
+                name  = input("Enter name : ")
+                phone = input("Enter Phone Number : ")
+                deposited = input("Is Initial amount (2000) Deposited Press(y) or (n): ")
+                if deposited.strip().lower()=='y':
+                    print(b1.add_users(name,phone))
+                elif deposited.strip().lower()=='n':
+                    deposit = int(input("Enter Deposit amount : "))
+                    print(b1.add_users(name,phone,deposit))  
+                              
+            case 3 : # Deposit Funds
+                unid = int(input("Enter account number : "))
+                amount = int(input("Enter deposit amount : "))
+                print(b1.deposit_funds(unid=unid, amount=amount))
+            
+            case 4 : # Withdraw Funds
+                unid = int(input("Enter account number : "))
+                amount = int(input("Enter withdraw amount : "))            
+                print(b1.withdraw_funds(unid=unid, amount=amount))
+                
+            case 5 : # Show Account Statement
+                unid = int(input("Enter account number : "))
+                b1.acc_stat(unid=unid)
 
-print("************* LIST THE RECORDS ******************")
-b1.list_all_users()
-
-# deposit funds
-print("*************** LIST THE RECORDS (DEPOSIT FUNDS (ID1)) ****************")
-print(b1.deposit_funds(unid=1, amount=1000))
-print("***list users data")
-b1.list_all_users()
-
-# withdraw funds
-print("************** LIST THE RECORDS (WITHDRAW FUNDS (ID1)) *****************")
-print(b1.withdraw_funds(unid=1, amount=500))
-print("***list users data")
-b1.list_all_users()
-
-print("************* LIST THE RECORDS (DEPOSIT FUNDS (ID3)) ******************")
-print(b1.withdraw_funds(unid=3, amount=1500))
-print("***list users data")
-b1.list_all_users()
+            case 6 : 
+                print("Thanks for visiting out bank, Please visit again next time")
+                break
+            
+            case _ :
+                print("--> Enter Valid Input Operation : ")
+    
+    except ValueError:
+        print("--> Enter a valid number")                
+            
 
 
-print("************** LIST THE RECORDS (DEPOSIT FUNDS (ID3)) *****************")
-print(b1.withdraw_funds(unid=3, amount=2500))
-print("***list users data")
-b1.list_all_users()
+## Add few users with unid and deposit of 2000
+# print(b1.add_users("Vishal", "9390365005"))
+# print(b1.add_users("Tessa", "1234567890"))
+# print(b1.add_users("Aakansha", "9987654321"))
+
+# print("************* LIST THE RECORDS ******************")
+# b1.list_all_users()
+
+# # deposit funds
+# print("*************** LIST THE RECORDS (DEPOSIT FUNDS (ID1)) ****************")
+# print(b1.deposit_funds(unid=1, amount=1000))
+# print("***list users data")
+# b1.list_all_users()
+
+# # withdraw funds
+# print("************** LIST THE RECORDS (WITHDRAW FUNDS (ID1)) *****************")
+# print(b1.withdraw_funds(unid=1, amount=500))
+# print("***list users data")
+# b1.list_all_users()
+
+# print("************* LIST THE RECORDS (DEPOSIT FUNDS (ID3)) ******************")
+# print(b1.withdraw_funds(unid=3, amount=1500))
+# print("***list users data")
+# b1.list_all_users()
 
 
-print("*********** ACCOUNT STATEMENT (DEPOSIT FUNDS (ID3)) ********************")
-b1.acc_stat(unid=3)
-print("***list users data")
-b1.list_all_users()
+# print("************** LIST THE RECORDS (DEPOSIT FUNDS (ID3)) *****************")
+# print(b1.withdraw_funds(unid=3, amount=2500))
+# print("***list users data")
+# b1.list_all_users()
+
+
+# print("*********** ACCOUNT STATEMENT (DEPOSIT FUNDS (ID3)) ********************")
+# b1.acc_stat(unid=3)
+# print("***list users data")
+# b1.list_all_users()
